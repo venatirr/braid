@@ -202,6 +202,7 @@ module Braid
 
       def fetch(remote = nil, *args)
         args.unshift "-n #{remote}" if remote
+		exec!("git lfs fetch --all")
         exec!("git fetch #{args.join(' ')}")
       end
 
